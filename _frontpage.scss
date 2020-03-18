@@ -1,0 +1,80 @@
+h2.iam-title {
+  margin-top: 0;
+}
+
+.card-container {
+  display: block;
+  
+  .group-list {
+    background-color: $color-primary-darker;
+    margin-right: 0;
+    padding: 10px 24px;
+    color: $color-white;
+    
+    a {
+      color: $color-white;
+        
+      &:hover,  &:visited {
+        color: $color-white;
+      }
+    }
+   }
+}
+
+.view-content-by-user-taxonomy {
+  .views-row {
+    margin-bottom: 20px;
+  }
+  .pager-nav {
+    clear: both;
+  }
+}
+
+.featuredcard__content {
+  ul.menu {
+    text-transform: capitalize;
+    padding-left: 2.5em;
+    background-image: url(../img/Icon_Login.svg);
+    background-position: 15px 50%;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    font-weight: 700;
+    background-color: #205493;
+    margin-left: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 2px;
+    width: 50%;
+    
+  &:hover {
+    background-color: $color-blue-darkest;
+    color: $color-white;
+    text-decoration: none;
+  }
+  
+    a { color: $color-white; }
+  
+  }
+}
+
+#news {
+    margin-top: 20px;
+}
+
+
+@media (min-width: 600px) {
+  .card-container {
+    display: -webkit-flex; 
+    display: -ms-flexbox; 
+    display: flex; 
+    
+    .group-list {
+      flex: 1;
+      margin-right: 1%;
+      
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }  
+}

@@ -1,0 +1,51 @@
+{% include '@qtso/includes/header.html.twig' %}
+<div class="heroimage">
+  <div class="container">
+    <h1 class="header__display">We are QTSO</h1>
+  </div>
+</div>
+
+<section id="main-content" class="content content__homepage">
+  <div class="container">
+    <div class="flexgrid margin--bottom">
+      <div class="featured-content">
+        <div class="featuredcard__content">
+          <h2 class="h3"><span class="fontweight--regular color--gray"><em>I'm a</em></span> <strong>Provider</strong></h2>
+          {{ drupal_view('taxonomy_menus', 'block_2') }}
+          
+        </div>
+      </div>
+      <div class="featured-content">
+        <div class="featuredcard__content">
+          <h2 class="h3"><span class="fontweight--regular color--gray"><em>I'm a</em></span> <strong>Vendor</strong></h2>
+          {{ drupal_view('taxonomy_menus', 'block_3') }}
+        </div>
+      </div>
+      <div class="featured-content">
+        <div class="featuredcard__content">
+          <h2 class="h3"><span class="fontweight--regular color--gray"><em>I'm an</em></span>&nbsp;<strong>Employee</strong></h2>
+          
+            {{ drupal_view('taxonomy_menus', 'block_4') }}
+            {{ drupal_view('taxonomy_menus', 'block_11') }}
+          {% if not logged_in %}
+            {{ drupal_menu('account') }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="div-block">
+      <h2>Explore By Topic</h2>
+      <div class="flexgrid">
+        <a href="/reference-manuals" class="card flexcard outline guides w-inline-block"><img src="../themes/qtso/assets/img/Icon_Guides.svg" alt="Reference &amp; Manuals icon" width="62" class="margin--right"><div class="h3 header__link">Reference &amp; Manuals</div></a>
+        <a href="/software" class="card flexcard outline software w-inline-block"><img src="../themes/qtso/assets/img/Icon_Software.svg" alt="Software icon" width="62" class="margin--right"><div class="h3 header__link">Software</div></a>
+        <a href="/training" class="card flexcard outline training w-inline-block"><img src="../themes/qtso/assets/img/Icon_Training.svg" alt="Training icon" width="62" class="margin--right"><div class="h3 header__link">Training</div></a>
+        <a href="/access-forms" class="card flexcard outline w-inline-block"><img src="../themes/qtso/assets/img/Icon_Forms.svg" alt="Access Forms icon" width="62" class="margin--right"><div class="h3 header__link">Access Forms</div></a>
+      </div>
+    </div>
+    <h2 class="margin--none">News &amp; Updates</h2>
+    {{ drupal_view('content_by_user_taxonomy', 'block_1') }}
+  </div>
+</section>
+{% include '@qtso/includes/footer.html.twig' %}
+
+
