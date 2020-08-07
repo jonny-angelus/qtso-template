@@ -1,0 +1,73 @@
+<?php
+/**
+  * Implements hook computed_field_field_attributions_compute
+  */
+  function computed_field_field_attributions_compute($entity_type_manager, $entity, $fields, $delta) {
+    // set temp variable
+    $tids = array();
+    $terms = array();
+
+    if ($entity->field_pro[0]){
+      foreach($entity->field_pro as $key => $term) {
+        $tids[] = $entity->field_pro[$key]->target_id;
+      }
+    }
+
+    if ($entity->field_ve[0]){
+      foreach($entity->field_ve as $key => $term) {
+        $tids[] = $entity->field_ve[$key]->target_id;
+      }
+    }
+
+    if ($entity->field_state_and_regional_employe[0]) {
+      foreach($entity->field_state_and_regional_employe as $key => $term) {
+        $tids[] = $entity->field_state_and_regional_employe[$key]->target_id;
+      }
+    }
+    
+    if ($entity->field_so[0]) {
+      foreach($entity->field_so as $key => $term) {
+        $tids[] = $entity->field_so[$key]->target_id;
+      }
+    }
+    
+    if ($entity->field_qies_to_success_type[0]) {
+      foreach($entity->field_qies_to_success_type as $key => $term) {
+        $tids[] = $entity->field_qies_to_success_type[$key]->target_id;
+      }
+    }
+    
+    if ($entity->field_tools[0]) {
+      foreach($entity->field_tools as $key => $term) {
+        $tids[] = $entity->field_tools[$key]->target_id;
+      }
+    }
+    
+    
+    //kill empty values in the array
+    foreach ($tids as $key => $val) {
+      if (is_null($val) || $val=="") {
+        unset($tids[$key]);
+      }
+    }
+
+    foreach($tids as $tid){
+      $name = taxonomy_term_title(taxonomy_term_load($tid));
+      $link = "<a href='/taxonomy/term/$tid' class='tag w-button'>$name</a>";
+      $terms[] = $link;
+    }
+
+    //implode to comma list
+    $value = implode('', $terms);
+        
+    return $value;
+  }
+  
+  
+ /**
+ * Implements hook computed_field_field_attributions_compute
+ */
+  function computed_field_field_attributions_display($display_value, $value_raw, $value_escaped, $item, $delta, $langcode) {
+    $display_value = $value;
+    return $display_value;
+  }

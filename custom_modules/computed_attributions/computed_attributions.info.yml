@@ -1,0 +1,6 @@
+name: Computed Attributions
+description: Creates Attributions field using Computed Field module
+package: Custom
+type: module
+version: 1.0
+core: 8.x
