@@ -1,0 +1,6 @@
+name: User Notify Checked
+description: Checks the "Notify User" checkbox by default
+package: Custom
+type: module
+version: 1.0
+core: 8.x
